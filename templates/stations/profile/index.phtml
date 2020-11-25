@@ -1,0 +1,21 @@
+<?php
+/**
+ * @var App\Entity\Station $station
+ * @var \App\Assets $assets
+ */
+
+$this->layout('main', [
+    'title' => __('Profile'),
+    'manual' => true,
+    'sidebar_tab' => 'profile',
+]);
+
+$assets
+    ->load('fancybox')
+    ->load('InlinePlayer')
+    ->load('StationProfile')
+    ->addInlineJs($this->fetch('partials/radio_controls.js'), 95)
+    ->addInlineJs($this->fetch('stations/profile/index.js'), 99);
+?>
+
+<div id="profile"></div>

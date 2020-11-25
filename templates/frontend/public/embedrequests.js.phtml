@@ -1,0 +1,22 @@
+<?php
+/**
+ * @var \App\Customization $customization
+ * @var \App\Entity\Station $station
+ * @var \App\Http\Router $router
+ */
+
+$props = [
+    'requestListUri' => (string)$router->named('api:requests:list', ['station_id' => $station->getId()]),
+];
+?>
+
+$(function () {
+    let songRequest = new Vue({
+        el: '#song-requests',
+        render: function (createElement) {
+            return createElement(SongRequest.default, {
+                props: <?=json_encode($props) ?>
+            });
+        }
+    });
+});

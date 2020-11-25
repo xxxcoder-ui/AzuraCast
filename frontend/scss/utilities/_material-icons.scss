@@ -1,0 +1,20 @@
+.material-icons {
+  @include reset-material-icons;
+
+  &.lg {
+    @include reset-material-icons($material-icon-size-lg);
+  }
+
+  &.sm {
+    @include reset-material-icons($material-icon-size-sm);
+  }
+
+  &.inline {
+    line-height: 1 !important;
+  }
+}
+
+.material-icons-inline {
+  font-size: inherit;
+  line-height: 1;
+}

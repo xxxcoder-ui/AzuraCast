@@ -1,0 +1,20 @@
+<?php
+/** @var App\Entity\Station $station */
+
+$this->layout('minimal', [
+    'page_class' => 'embed station-' . $station->getShortName(),
+    'title' => $this->e($station->getName()),
+    'hide_footer' => true,
+]);
+
+/** @var \App\Assets $assets */
+$assets->load('RadioPlayer')
+    ->addInlineJs($this->fetch('frontend/public/embed.js', [
+        'station' => $station,
+        'nowplaying' => $nowplaying,
+    ]), 95);
+?>
+
+<div class="stations nowplaying">
+    <div id="station-nowplaying"></div>
+</div>
